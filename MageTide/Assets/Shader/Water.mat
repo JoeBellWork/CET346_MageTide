@@ -28,10 +28,10 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_FCF285C0: 1.5
+    - Vector1_FCF285C0: 0.15
     - _chop: 0.01
-    - _size: 2
-    - _speed: 0.03
+    - _size: 20
+    - _speed: 0.05
     - _strength: 0.01
     m_Colors:
     - Color_47EF905: {r: 0.6792453, g: 0.6792453, b: 0.6792453, a: 1}

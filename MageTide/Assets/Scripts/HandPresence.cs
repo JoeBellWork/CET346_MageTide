@@ -101,7 +101,7 @@ public class HandPresence : MonoBehaviour
         }
     }
 
-
+    /* Used to hold input buttons
     private void buttonCheck()
     {
         //temporary held for spell selection later        
@@ -120,4 +120,5 @@ public class HandPresence : MonoBehaviour
             Debug.Log("select/aim spell list");
         }
     }
+    */
 }
