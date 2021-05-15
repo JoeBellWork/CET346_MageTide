@@ -1,0 +1,28 @@
+UNITY PACKAGE:
+"XR interaction toolkit" (https://docs.unity3d.com/Packages/com.unity.xr.interaction.toolkit@0.9/manual/index.html) by Unity is licensed under Unity Personal Licesne(https://unity3d.com/unity/activation/personal).
+
+"Terrain Tools Sample Asset Pack" (https://assetstore.unity.com/packages/2d/textures-materials/nature/terrain-tools-sample-asset-pack-145808) by Unity is licensed under Unity Personal Licesne(https://unity3d.com/unity/activation/personal).
+
+"Unity Particle Pack" (https://assetstore.unity.com/packages/essentials/tutorial-projects/unity-particle-pack-127325) by Unity is licensed under Unity Personal Licesne(https://unity3d.com/unity/activation/personal).
+
+
+MODELS, MATERIALS AND TEXTURES:
+"Adventure Starter Pack" (https://devassets.com/assets/adventure-starter-pack/) by DevAssets is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
+
+"Western props pack" https://devassets.com/assets/western-props-pack/) by DevAssets is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
+
+SOUND EFFECTS:
+"Fireball Cast 1" (https://freesound.org/people/LiamG_SFX/sounds/334234/) by LiamG_SFX is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
+
+" Explosion_001.mp3" (https://freesound.org/people/cydon/sounds/268557/) by cydon is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
+
+
+MUSIC:
+"Valiesse" (https://freemusicarchive.org/music/sawsquarenoise/Fantasa_de_los_Pinos/01_valiesse) by Sawsquarenoise is licensed under Creative Commons Attribution BY (http://creativecommons.org/licenses/by/4.0/).
+
+"Fantasía de los Pinos" (https://freemusicarchive.org/music/sawsquarenoise/Fantasa_de_los_Pinos/02_fantasia_de_los_pinos) by Sawsquarenoise is licensed under Creative Commons Attribution BY (http://creativecommons.org/licenses/by/4.0/).
+
+"El Paraíso de los Troncos" (https://freemusicarchive.org/music/sawsquarenoise/Fantasa_de_los_Pinos/03_el_paraiso_de_los_troncos) by Sawsquarenoise is licensed under Creative Commons Attribution BY (http://creativecommons.org/licenses/by/4.0/).
+
+"Rito Oculto" (https://freemusicarchive.org/music/sawsquarenoise/Fantasa_de_los_Pinos/05_rito_oculto) by Sawsquarenoise is licensed under Creative Commons Attribution BY (http://creativecommons.org/licenses/by/4.0/).
+

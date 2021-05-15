@@ -8,6 +8,11 @@ TagManager:
   - Explodable
   - Hand
   - Water
+  - Trophy
+  - Key
+  - Box
+  - WG
+  - MP
   layers:
   - Default
   - TransparentFX
@@ -23,11 +28,11 @@ TagManager:
   - Ground
   - Body
   - SpellHand
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Box
+  - Decoration
+  - LeftKey
+  - RightKey
+  - AI
   - 
   - 
   - 

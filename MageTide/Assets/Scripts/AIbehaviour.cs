@@ -7,9 +7,10 @@ public class AIbehaviour : MonoBehaviour
 {
     // nav mesh control
     public NavMeshAgent agent;
+    public bool isGuardian;
     public Transform player;
     public LayerMask isGround, isPlayer;
-    private Vector3 tempHold;
+    private Vector3 tempHold, fleePos, directionToPlayer;
 
     [Space (10)]
     // desinations
@@ -30,28 +31,45 @@ public class AIbehaviour : MonoBehaviour
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
+        player = GameObject.Find("VR_Rig").transform;
     }
 
     private void Update()
     {
-        playerInSightRange = Physics.CheckSphere(transform.position, sightRange, isPlayer);
-        playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, isPlayer);
-
-        if(!playerInSightRange && !playerInAttackRange)
+        if(isGuardian)
         {
-            Patrol();
-        }
+            playerInSightRange = Physics.CheckSphere(transform.position, sightRange, isPlayer);
+            playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, isPlayer);
 
-        if(playerInSightRange && !playerInAttackRange)
-        {
-            ChasePlayer();
-        }
+            if (!playerInSightRange && !playerInAttackRange)
+            {
+                Patrol();
+            }
 
-        if(playerInAttackRange)
-        {
-            AttackPlayer();
+            if (playerInSightRange && !playerInAttackRange)
+            {
+                ChasePlayer();
+            }
+
+            if (playerInAttackRange)
+            {
+                AttackPlayer();
+            }
         }
-    }
+        else
+        {
+            playerInSightRange = Physics.CheckSphere(transform.position, sightRange, isPlayer);
+            if (!playerInSightRange)
+            {
+                Patrol();
+            }
+            else
+            {
+                PreyFlee();
+            }
+        }
+        
+    }    
 
     private void Patrol()
     {
@@ -85,6 +103,12 @@ public class AIbehaviour : MonoBehaviour
         }
     }
 
+    private void PreyFlee()
+    {
+        directionToPlayer = transform.position - player.position;
+        fleePos = transform.position + directionToPlayer;
+        agent.SetDestination(fleePos);
+    }
 
     private void ChasePlayer()
     {
@@ -112,13 +136,11 @@ public class AIbehaviour : MonoBehaviour
 
     IEnumerator ResetPatrolWithTime()
     {
-        Debug.Log("A");
         tempHold = walkPoint;
         yield return new WaitForSeconds(10f);
         if(tempHold == walkPoint)
         {
             walkPointSet = false;
-            Debug.Log("B");
         }
     }
 }
