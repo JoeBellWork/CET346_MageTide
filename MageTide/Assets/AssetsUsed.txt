@@ -14,7 +14,10 @@ MODELS, MATERIALS AND TEXTURES:
 SOUND EFFECTS:
 "Fireball Cast 1" (https://freesound.org/people/LiamG_SFX/sounds/334234/) by LiamG_SFX is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
 
-" Explosion_001.mp3" (https://freesound.org/people/cydon/sounds/268557/) by cydon is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
+"Explosion_001.mp3" (https://freesound.org/people/cydon/sounds/268557/) by cydon is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
+
+"Raindrop" (https://sketchfab.com/3d-models/raindrop-89d43bb71fff49029793ca7abcb60a53#download) by danfinlay is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
+
 
 
 MUSIC:

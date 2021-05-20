@@ -28,13 +28,18 @@ public class AIbehaviour : MonoBehaviour
     public float sightRange, attackRange;
     public bool playerInAttackRange, playerInSightRange;
 
+    [Space(10)]    
+    public Transform eye, shootPoint;
+    public Rigidbody bulletRB;
+    private Vector3 vO;
+
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
-        player = GameObject.Find("VR_Rig").transform;
+        player = GameObject.Find("VR camera").transform;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if(isGuardian)
         {
@@ -123,10 +128,42 @@ public class AIbehaviour : MonoBehaviour
         if(!alreadyAttacked)
         {
             // add shooting code towards player/camera
+            LaunchBullet();
 
             alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
         }
+    }
+
+    Vector3 CalculateVelocity(Vector3 target, Vector3 origin, float time)
+    {
+        // defining X and Y for distance and targeting
+        Vector3 distance = target - origin; //fin difference between enemy and player
+
+        //plot in 2D space
+        Vector3 distanceXZ = distance;
+        distanceXZ.y = 0;
+
+        // float for distance
+        float Sy = distance.y;
+        float Sxz = distanceXZ.magnitude;
+
+        float velocityXZ = Sxz / time; // velocity = distance / time
+        float velocityY = Sy / time + 0.5f * Mathf.Abs(Physics.gravity.y) * time; // verticle velocity 
+
+        Vector3 result = distanceXZ.normalized;
+        result *= velocityXZ;
+        result.y = velocityY;
+        return result;
+    }
+
+    public void LaunchBullet()
+    {
+        vO = CalculateVelocity(player.transform.position, shootPoint.position, 1.5f);
+        eye.rotation = Quaternion.LookRotation(vO);
+
+        Rigidbody obj = Instantiate(bulletRB, shootPoint.transform.position, eye.rotation);
+        obj.velocity = vO;
     }
 
     private void ResetAttack()

@@ -527,6 +527,13 @@ MonoBehaviour:
   manaMax: 100
   spellCost: 20
   currentMana: 0
+  manaNumber: {fileID: 0}
+  healthBar: {fileID: 0}
+  maxHealth: 100
+  currentHealth: 0
+  damage: 25
+  healthNumber: {fileID: 0}
+  fade: {fileID: 0}
 --- !u!1 &3464114194476425193
 GameObject:
   m_ObjectHideFlags: 0

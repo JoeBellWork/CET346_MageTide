@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.XR;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Spellcasting : MonoBehaviour
 {
@@ -21,14 +22,24 @@ public class Spellcasting : MonoBehaviour
     [Space(20)]
     public Image manaImage;
     public float manaMax = 100, spellCost = 20, currentMana;
+    public Text manaNumber;
+    [Space(20)]
+    public Image healthBar;
+    public float maxHealth = 100, currentHealth, damage = 25;
+    public Text healthNumber;
 
 
     private float downTime = 0.0f;
     private int spawnBall = 0;
+    private int i;
+    [Space(10)]
+    public KeyGatePuzzle fade;
 
     // Start is called before the first frame update
     void Start()
     {
+        currentHealth = maxHealth;
+        healthBar.fillAmount = currentHealth / 100;
         manaImage.fillAmount = (manaMax / 100);
         currentMana = manaMax;
         socketSettings = spellSocket.GetComponent<XRSocketInteractor>();
@@ -62,6 +73,8 @@ public class Spellcasting : MonoBehaviour
     
      IEnumerator ManaAdd()
      {
+        i = (int)currentMana;
+        manaNumber.text = i.ToString();
         yield return new WaitForSeconds(0.1f);
         if (currentMana >= 100)
         {
@@ -79,6 +92,17 @@ public class Spellcasting : MonoBehaviour
         }
         StartCoroutine(ManaAdd());
      }
+
+    public void HealthReduce()
+    {
+        currentHealth -= 20;
+        healthBar.fillAmount = currentHealth / 100;
+        healthNumber.text = currentHealth.ToString();
+        if(currentHealth <= 0)
+        {
+            fade.EndDemo(0);
+        }
+    }
 
     public void ManaReduce()
     {
@@ -138,7 +162,7 @@ public class Spellcasting : MonoBehaviour
                     else if (downTime >= 1 && downTime < 2)
                     {
                         spawnBall = 1;
-                        targetDevice.SendHapticImpulse(0, 0.3f, 0.3f);
+                        hapticShock(0.3f, 0.3f);
                         Instantiate(fireBall[0], spellSocket.transform.position, Quaternion.identity);
                         ManaReduce();
 
@@ -146,14 +170,14 @@ public class Spellcasting : MonoBehaviour
                     else if (downTime >= 2 && downTime < 3)
                     {
                         spawnBall = 2;
-                        targetDevice.SendHapticImpulse(0, 0.6f, 0.3f);
+                        hapticShock(0.6f, 0.3f);
                         Instantiate(fireBall[1], spellSocket.transform.position, Quaternion.identity);
                         ManaReduce();
                     }
                     else
                     {
                         spawnBall = 3;
-                        targetDevice.SendHapticImpulse(0, 0.9f, 0.3f);
+                        hapticShock(0.9f, 0.3f);
                         Instantiate(fireBall[2], spellSocket.transform.position, Quaternion.identity);
                         ManaReduce();
                     }
@@ -162,7 +186,12 @@ public class Spellcasting : MonoBehaviour
                 }
             }
         }        
-    }    
+    }  
+    
+    public void hapticShock(float amp, float duration)
+    {
+        targetDevice.SendHapticImpulse(0, amp, duration);
+    }
     void searchDevice()
     {
         var rightHandController = new List<UnityEngine.XR.InputDevice>();

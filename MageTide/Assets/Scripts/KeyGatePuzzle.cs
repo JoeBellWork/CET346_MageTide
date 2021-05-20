@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.XR.Interaction.Toolkit;
 
 public class KeyGatePuzzle : MonoBehaviour
-{         
+{
     public GameObject LeftGateAnchorOn, RightGateAnchorOn;
     public GameObject LeftGateAnchorOff, RightGateAnchorOff;
     public GameObject LeftFireOrb, RightFireOrb;
@@ -86,15 +86,20 @@ public class KeyGatePuzzle : MonoBehaviour
         RightCanLight = true;
     }
 
-    public void EndDemo()
+    public void EndDemoByButton()
     {
-        StartCoroutine(endLevel());
+        EndDemo(2);
     }
 
-    IEnumerator endLevel()
+    public void EndDemo(int i)
     {
         fadeout.SetTrigger("FadeOut");
+        StartCoroutine(endLevel(i));
+    }
+
+    IEnumerator endLevel(int index)
+    {        
         yield return new WaitForSeconds(5f);
-        SceneManager.LoadSceneAsync(2);
+        SceneManager.LoadSceneAsync(index);
     }
 }

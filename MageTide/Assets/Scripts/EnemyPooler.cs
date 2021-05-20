@@ -5,7 +5,8 @@ using UnityEngine;
 public class EnemyPooler : MonoBehaviour
 {
     public Dictionary<string, Queue<GameObject>> poolEnemies;
-    public GameObject bigSplash;
+    public GameObject bigSplash, smallDrops, bigDrops;
+    private ParticleSystem bigSplashP, smallDropsP, bigDropP;
     private int i;
 
     [System.Serializable]
@@ -23,6 +24,10 @@ public class EnemyPooler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        bigSplashP = bigSplash.GetComponent<ParticleSystem>();
+        bigDropP = bigDrops.GetComponent<ParticleSystem>();
+        smallDropsP = smallDrops.GetComponent<ParticleSystem>();
+
         poolEnemies = new Dictionary<string, Queue<GameObject>>();
 
         foreach (pool pool in pools)
@@ -57,7 +62,7 @@ public class EnemyPooler : MonoBehaviour
             }
             AICurrentLimit++;
         }
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(10f);
         StartCoroutine(spawnCounter());
     }
 
@@ -75,16 +80,18 @@ public class EnemyPooler : MonoBehaviour
             GameObject objToSpawn = poolEnemies[tag].Dequeue();
             objToSpawn.transform.position = spawnLocation.position;
             objToSpawn.SetActive(true);
-
+            
             poolEnemies[tag].Enqueue(objToSpawn);
-            bigSplash.SetActive(true);
+            bigSplashP.Play();
+            bigDropP.Play();
+            smallDropsP.Play();
+
             return objToSpawn;
         }
         else
         {
             Debug.LogError(tag + " does not exist");
             return null;
-        }
-        
+        }        
     }
 }
