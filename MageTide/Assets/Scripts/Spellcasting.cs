@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.XR;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
 public class Spellcasting : MonoBehaviour
 {
@@ -117,12 +116,12 @@ public class Spellcasting : MonoBehaviour
         teleportSpell.enabled = false;
     }
     public void SelectTeleport()
+
     {
         currentSpell = spellMedal[2];        
         spellSocket.SetActive(false);
         StartCoroutine(canTeleport());
     }
-
     IEnumerator canTeleport()
     {        
         if(currentSpell == spellMedal[2])
@@ -192,6 +191,7 @@ public class Spellcasting : MonoBehaviour
     {
         targetDevice.SendHapticImpulse(0, amp, duration);
     }
+
     void searchDevice()
     {
         var rightHandController = new List<UnityEngine.XR.InputDevice>();

@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BulletBehaviour : MonoBehaviour
@@ -11,13 +10,13 @@ public class BulletBehaviour : MonoBehaviour
     private Rigidbody rb;
     private Vector3 local;
     private bool hasHit = false;
-    private AudioSource audio;
+    private AudioSource audioManager;
     private void Awake()
     {
         player = GameObject.Find("RightHand").GetComponent<Spellcasting>();
         mesh.enabled = true;
         rb = GetComponent<Rigidbody>();
-        audio = GetComponent<AudioSource>();
+        audioManager = GetComponent<AudioSource>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -30,7 +29,7 @@ public class BulletBehaviour : MonoBehaviour
     {
         splashEffect.transform.position = this.transform.position;
         splashEffect.Play();
-        audio.Play();
+        audioManager.Play();
         StartCoroutine(Splash());
         Collider[] colliders = Physics.OverlapSphere(transform.position, radius);
         foreach (Collider nearObject in colliders)

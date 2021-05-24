@@ -17,7 +17,7 @@ public class EnemyPooler : MonoBehaviour
         public int size;
     }
     public Transform spawnLocation;
-    public int AIMaxLimit = 10, AICurrentLimit;
+    public int AIMaxLimit, AICurrentLimit;
     public List<pool> pools;
     
 
@@ -48,7 +48,6 @@ public class EnemyPooler : MonoBehaviour
 
     IEnumerator spawnCounter()
     {
-              
         if (AICurrentLimit < AIMaxLimit)
         {
             RandomBinary();
@@ -62,8 +61,8 @@ public class EnemyPooler : MonoBehaviour
             }
             AICurrentLimit++;
         }
-        yield return new WaitForSeconds(10f);
-        StartCoroutine(spawnCounter());
+        yield return new WaitForSeconds(30f);
+        StartCoroutine(spawnCounter());        
     }
 
     public int RandomBinary()

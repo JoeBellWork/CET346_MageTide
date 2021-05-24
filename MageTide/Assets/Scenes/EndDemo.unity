@@ -178,6 +178,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: StaticIsland
       objectReference: {fileID: 0}
+    - target: {fileID: 5929483019888073805, guid: d97080de2b8a5644a948041717366a83, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -7.43
+      objectReference: {fileID: 0}
+    - target: {fileID: 5929483019888073805, guid: d97080de2b8a5644a948041717366a83, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -4.99
+      objectReference: {fileID: 0}
     - target: {fileID: 5929483019969107670, guid: d97080de2b8a5644a948041717366a83, type: 3}
       propertyPath: m_ValidColorGradient.key0.a
       value: 0
@@ -349,6 +357,14 @@ PrefabInstance:
     - target: {fileID: 7087189057560216476, guid: d97080de2b8a5644a948041717366a83, type: 3}
       propertyPath: m_InvalidColorGradient.key0.b
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7433136465029348362, guid: d97080de2b8a5644a948041717366a83, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.73
+      objectReference: {fileID: 0}
+    - target: {fileID: 7433136465029348362, guid: d97080de2b8a5644a948041717366a83, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -5.88
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d97080de2b8a5644a948041717366a83, type: 3}
